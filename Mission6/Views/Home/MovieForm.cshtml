@@ -1,0 +1,53 @@
+﻿
+@{
+}
+@* One last page with a form to enter movies into the collection.  The new movie 
+form should allow to enter all the information currently contained in the 
+spreadsheet linked above. *@
+
+@model Form
+
+@* Movie form that has input spaces for all the different aspects of the excel sheet*@
+
+<h1> Movie Form </h1>
+
+<form method="post">
+    <label asp-for="Title"> Movie Title: </label>
+    <input asp-for="Title" />
+    <br />
+    <label asp-for="Category"> Movie Category: </label>
+    <input asp-for="Category" />
+    <br />
+    <label asp-for="Year"> Year: </label>
+    <input asp-for="Year" />
+    <br />
+    <label asp-for="Director"> Director: </label>
+    <input asp-for="Director" />
+    <br />
+    <label asp-for="Rating"> Rating: </label>
+    <select asp-for="Rating">
+        <option value="g">G </option>
+        <option value="pg">PG </option>
+        <option value="pg13">PG-13 </option>
+        <option value="r">R </option>
+    </select>
+    <br />
+    <label asp-for="Edited"> Has it been edited?: </label>
+    <select asp-for="Edited">
+        <option value="true">Yes </option>
+        <option value="false">No </option>
+    </select>
+    <br />
+    <label asp-for="Lent"> Lent to: </label>
+    <input asp-for="Lent" />
+    <br />
+    <label asp-for="Notes"> Notes: </label>
+    <input asp-for="Notes" />
+    <br />
+
+    <button type="submit"> Submit Movie </button>
+
+</form>
+
+
+
