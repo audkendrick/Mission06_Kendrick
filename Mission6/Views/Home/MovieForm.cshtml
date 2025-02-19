@@ -1,22 +1,27 @@
 ﻿
 @{
 }
-@* One last page with a form to enter movies into the collection.  The new movie 
-form should allow to enter all the information currently contained in the 
-spreadsheet linked above. *@
 
-@model Form
+@model Movies
 
 @* Movie form that has input spaces for all the different aspects of the excel sheet*@
 
 <h1> Movie Form </h1>
 
 <form method="post">
+
+    <input type="hidden" asp-for="MovieId" />
+    <br />
     <label asp-for="Title"> Movie Title: </label>
     <input asp-for="Title" />
     <br />
-    <label asp-for="Category"> Movie Category: </label>
-    <input asp-for="Category" />
+    <select asp-for="CategoryId">
+        <option value="">Select a Category</option>
+        @foreach (Category m in ViewBag.Categories)
+        {
+            <option value="@m.CategoryId">@m.CategoryName</option>
+        }
+    </select>
     <br />
     <label asp-for="Year"> Year: </label>
     <input asp-for="Year" />
@@ -38,14 +43,22 @@ spreadsheet linked above. *@
         <option value="false">No </option>
     </select>
     <br />
-    <label asp-for="Lent"> Lent to: </label>
-    <input asp-for="Lent" />
+    <label asp-for="LentTo"> Lent to: </label>
+    <input asp-for="LentTo" />
+    <br />
+    <label asp-for="CopiedToPlex"> Copied to Plex?: </label>
+    <select asp-for="CopiedToPlex">
+        <option value="true">Yes </option>
+        <option value="false">No </option>
+    </select>
     <br />
     <label asp-for="Notes"> Notes: </label>
     <input asp-for="Notes" />
     <br />
 
     <button type="submit"> Submit Movie </button>
+
+    <div asp-validation-summary="All"></div>
 
 </form>
 
