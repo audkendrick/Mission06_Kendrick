@@ -61,6 +61,7 @@ namespace Mission6.Controllers
             }
         }
 
+        // Movie List page (database)
         public IActionResult MovieList()
         {
             //Linq
@@ -71,6 +72,7 @@ namespace Mission6.Controllers
             return View(applications);
         }
 
+        // Editing a movie record
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -93,13 +95,14 @@ namespace Mission6.Controllers
             return RedirectToAction("MovieList");
         }
 
+        // Deleting a movie record
         [HttpGet]
         public IActionResult Delete(int id)
         {
             var recordDelete = _context.Movies
                 .Single(x => x.MovieId == id);
 
-            return View(recordDelete);
+            return View(recordDelete); //Confirm the deletion
         }
 
         [HttpPost]

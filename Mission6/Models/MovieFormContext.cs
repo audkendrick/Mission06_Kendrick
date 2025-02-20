@@ -11,10 +11,12 @@ namespace Mission6.Models
         public MovieFormContext(DbContextOptions<MovieFormContext> options) : base(options)
         {
         }
-
+        // Connect Movie and Category table
         public DbSet<Movies> Movies { get; set; }
 
         public DbSet<Category> Categories { get; set; }
+        
+        // Create the conversion between CategoryId and Category Name
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Category>().HasData(

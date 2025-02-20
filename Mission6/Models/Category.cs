@@ -2,6 +2,7 @@
 
 namespace Mission6.Models
 {
+    // Create the Category table to match the database
     public class Category
     {
         [Key]

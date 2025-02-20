@@ -6,9 +6,8 @@ using System.Reflection.Emit;
 namespace Mission6.Models
 {
 
-    // Set up database table with various columns related to Films
-
-    // Some of the fields are required and some (edited, lent, and notes) can be left blank 
+// Set up the table for the movie list database
+// Make sure moveId, Title, Year (at least 1888), Edited, and Copied to Plex are required
 
     public class Movies
     {
@@ -24,6 +23,7 @@ namespace Mission6.Models
 
         public Category? Category { get; set; }
 
+        [Range(1888, 2025)]
         public int Year { get; set; }
 
         public string? Director { get; set; }
@@ -35,8 +35,6 @@ namespace Mission6.Models
         public string? LentTo { get; set; }
         public bool CopiedToPlex { get; set; }
 
-
-        [StringLength(25, ErrorMessage = "Notes cannot exceed 25 characters.")]
         public string? Notes { get; set; }
 
 

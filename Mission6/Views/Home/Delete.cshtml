@@ -1,5 +1,5 @@
 ﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    For confirming the deletion of a record
 *@
 @{
 }
@@ -10,7 +10,9 @@
 
 <h3>@Model.Title</h3>
 
+@* Create the buttons to either cancel the delete or to delete the record *@
 <form method="post">
+    <input type="hidden" asp-for="MovieId" />
     <button type="submit">Delete</button>
     <a class="btn btn-info" asp-controller="Home" asp-action="MovieList">Cancel</a>
 </form>
